@@ -21,7 +21,8 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with gradle
-        run: chmod +x /docker_study/docker/gradlew
+        working-directory: ./docker_study/docker
+        run: chmod +x gradlew
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
