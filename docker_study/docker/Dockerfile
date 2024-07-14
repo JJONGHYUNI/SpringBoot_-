@@ -1,5 +1,5 @@
 # 사용할 java 버전
-FROM bellsoft/liberica-openjdk-alpine:17
+FROM adoptopenjdk/openjdk11
 
 # .gradle을 사용해 빌드를 실행하는 명령어
 CMD ["./gradlew", "clean", "bootjar"]
@@ -17,4 +17,4 @@ COPY ${JAR_FILE} app.jar
 EXPOSE 8080
 
 # 컨테이너가 실행될 때 기본적으로 실행될 명령어 설정
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/app.jar","-web -webAllowOthers -tcp -tcpAllowOthers -browser"]
