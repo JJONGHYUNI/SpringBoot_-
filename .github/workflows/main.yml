@@ -25,9 +25,8 @@ jobs:
         run: chmod +x gradlew
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: bootjar
+        working-directory: ./docker_study/docker
+        run: ./gradlew bootjar
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
