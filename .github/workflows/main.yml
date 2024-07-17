@@ -39,6 +39,10 @@ jobs:
 
       - name: Echo Docker Hub Username
         run: echo ${{ secrets.DOCKERHUB_USERNAME }}
+
+      - name: Print Dockerfile content
+        working-directory: ./docker_study/docker
+        run: cat Dockerfile
       
       - name: Build Docker
         working-directory: ./docker_study/docker
