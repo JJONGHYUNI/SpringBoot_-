@@ -1,6 +1,6 @@
 # 사용할 java 버전
 FROM amazoncorretto:11-alpine-jdk
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=build/libs/*.jar
 ARG PROFILES
 ARG ENV
 COPY ${JAR_FILE} app.jar
