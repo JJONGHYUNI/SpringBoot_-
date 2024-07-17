@@ -46,7 +46,7 @@ jobs:
       
       - name: Build Docker
         working-directory: ./docker_study/docker
-        run: docker build --platform linux/amd64 -t ${{ secrets.DOCKERHUB_USERNAME }}/docker_test ./docker_study/docker
+        run: docker build --platform linux/amd64 -t ${{ secrets.DOCKERHUB_USERNAME }}/docker_test .
       
       - name: Push Docker
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker_test:latest
