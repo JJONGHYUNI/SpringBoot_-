@@ -1,4 +1,52 @@
 spring:
+  profiles:
+    active: local
+    group:
+      local: local, common
+      blue: blue, common
+      green: green, common
+
+server:
+  env: blue
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+server:
+  port: 8080
+  serverAddress: localhost
+
+serverName: local_server
+
+---
+spring:
+  config:
+    activate:
+      on-profile: blue
+server:
+  port: 8080
+  serverAddress: 172.31.13.4
+
+serverName: green_server
+
+---
+spring:
+  config:
+    activate:
+      on-profile: green
+server:
+  port: 8080
+  serverAddress: 172.31.13.4
+
+serverName: green_server
+
+---
+spring:
+  config:
+    activate:
+      on-profile: common
   datasource:
     driver-class-name: org.h2.Driver
     url: 'jdbc:h2:~/test'
