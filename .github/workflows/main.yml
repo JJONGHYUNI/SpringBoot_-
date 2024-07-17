@@ -33,12 +33,18 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: Check working directory
+        run: ls -al ./docker_study/docker
 
+      - name: Echo Docker Hub Username
+        run: echo ${{ secrets.DOCKERHUB_USERNAME }}
+      
       - name: Build Docker
         working-directory: ./docker_study/docker
         run: docker build --platform linux/amd64 -t ${{ secrets.DOCKERHUB_USERNAME }}/docker_test .
+      
       - name: Push Docker
-        working-directory: ./docker_study/docker
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker_test:latest
         
   deploy:
