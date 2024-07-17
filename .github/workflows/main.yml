@@ -41,7 +41,7 @@ jobs:
         run: echo ${{ secrets.DOCKERHUB_USERNAME }}
       
       - name: Build Docker
-        working-directory: ./docker_study
+        working-directory: ./docker_study/docker
         run: docker build --platform linux/amd64 -t ${{ secrets.DOCKERHUB_USERNAME }}/docker_test .
       
       - name: Push Docker
